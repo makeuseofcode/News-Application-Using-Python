@@ -2,8 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import requests
 
-apiKey = 'Your API Key'
-BASE_URL = f'http://newsapi.org/v2/top-headlines?country=in&category={type}&apiKey=' + apiKey
+apiKey = 'YOUR_API_KEY'
 
 class NewsApp:
     global apiKey, type
@@ -11,13 +10,14 @@ class NewsApp:
         self.root = root
         self.root.geometry('1000x650')
         self.root.title("News Application")
+        self.root.config(bg='#ffc0cb')
         self.newsCatButton = []
         self.newsCat = ["general", "entertainment", "sports", "technology"]
 
         title = Label(self.root, text="News Application", font=("times new roman", 28, "bold"),pady=2, bg='#ff007f').pack(fill=X)
 
         F1 = LabelFrame(self.root,bg='#fc6c85')
-        F1.place(x=20, y=80, width=215, relheight=0.33)
+        F1.place(x=20, y=80, width=215, height=210)
 
         for i in range(len(self.newsCat)):
             b = Button(F1, text=self.newsCat[i].upper(), width=15, bd=3, font="arial 14 bold", bg='#c154c1')
@@ -52,9 +52,8 @@ class NewsApp:
             else:
                 self.txtarea.insert(END, "No news available")
         except Exception as e:
-            messagebox.showerror('ERROR', "Sorry, we ran into some issues :'(")
+            messagebox.showerror('ERROR', "Sorry, we ran into some issues. Please check your internet connection and try again.'(")
 
 root = Tk()
-root.config(bg='#ffc0cb')
 obj = NewsApp(root)
 root.mainloop()
