@@ -11,19 +11,19 @@ class NewsApp:
         self.root.geometry('1000x650')
         self.root.title("News Application")
         self.root.config(bg='#ffc0cb')
-        self.newsCatButton = []
-        self.newsCat = ["general", "entertainment", "sports", "technology"]
+        self.newsCategoryButton = []
+        self.newsCategory = ["general", "entertainment", "sports", "technology"]
 
         title = Label(self.root, text="News Application", font=("times new roman", 28, "bold"),pady=2, bg='#ff007f').pack(fill=X)
 
         F1 = LabelFrame(self.root,bg='#fc6c85')
         F1.place(x=20, y=80, width=215, height=210)
 
-        for i in range(len(self.newsCat)):
-            b = Button(F1, text=self.newsCat[i].upper(), width=15, bd=3, font="arial 14 bold", bg='#c154c1')
+        for i in range(len(self.newsCategory)):
+            b = Button(F1, text=self.newsCategory[i].upper(), width=15, bd=3, font="arial 14 bold", bg='#c154c1')
             b.grid(row=i, column=0, padx=10, pady=5)
             b.bind('<Button-1>', self.Newsarea)
-            self.newsCatButton.append(b)
+            self.newsCategoryButton.append(b)
 
         F2 = Frame(self.root, bd=3)
         F2.place(x=260, y=80, relwidth=0.7, relheight=0.8)
